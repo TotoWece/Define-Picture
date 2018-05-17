@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DefiningPicture.DefineView"
+             Title="Defining Picture"
+             BackgroundColor="{StaticResource LightBlueColor}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="16, 0, 16, 16"
+                     VerticalOptions="FillAndExpand">
+                <StackLayout Padding="0"
+                     VerticalOptions="CenterAndExpand">
+                    <Image Source="{Binding DefinedImage}"
+                       IsVisible="{Binding ImageVisible}"
+                       Aspect="AspectFit"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Margin="40, 0"/>
+                    <Frame CornerRadius="10" 
+                   HasShadow="True" 
+                   BackgroundColor="{StaticResource WhiteColor}">
+                        <Frame.Content>
+                            <StackLayout>
+                                <Label Text="Description =" 
+                                   TextColor="{StaticResource LightTextColor}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"/>
+                                <Label Text="{Binding Description}"
+                                   TextColor="{StaticResource DarkTextColor}"
+                                   FontSize="17"
+                                   HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame.Content>
+                    </Frame>
+                    <Frame CornerRadius="10"
+                   HasShadow="True"
+                   BackgroundColor="{StaticResource WhiteColor}">
+                        <Frame.Content>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Take Photo =" 
+                                   TextColor="{StaticResource LightTextColor}"
+                                   FontSize="14"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"/>
+                                <Switch IsToggled="{Binding IsTakePicture, Mode=TwoWay}"
+                                    HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </Frame.Content>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="End">
+                    <Button Text="Define Picture Now" 
+                            TextColor="{StaticResource WhiteColor}"
+                            BackgroundColor="{StaticResource DarkBlueColor}"
+                            CornerRadius="10"
+                            HorizontalOptions="FillAndExpand"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Command="{Binding TakePictureCommand}"/>
+                    <Button Text="&#xf085;"                               
+                            TextColor="{StaticResource WhiteColor}"
+                            FontFamily="{StaticResource FontAwesomeStyle}"
+                            BackgroundColor="{StaticResource DarkBlueColor}"
+                            CornerRadius="10"
+                            WidthRequest="50"
+                            HorizontalOptions="End"
+                            Command="{Binding SettingCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DefiningPicture.SettingView"
+             Title="Setting"
+             BackgroundColor="{StaticResource LightBlueColor}">
+    <ContentPage.Content>
+        <StackLayout Padding="16"
+                     VerticalOptions="FillAndExpand">
+            <StackLayout Padding="0"
+                     VerticalOptions="StartAndExpand">
+                <Frame CornerRadius="10" 
+                   HasShadow="True" 
+                   Padding="10,3"
+                   BackgroundColor="{StaticResource WhiteColor}">
+                    <Frame.Content>
+                        <StackLayout Spacing="0">
+                            <Label Text="Computer Vision Root =" 
+                                   TextColor="{StaticResource LightTextColor}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"/>
+                            <Entry Text="{Binding VisionRoot, Mode=TwoWay}"
+                                   Placeholder="https://&#x003c;Azure Location&#x003e;.api.cognitive.microsoft.com/vision/v1.0"
+                                   TextColor="{StaticResource DarkTextColor}"
+                                   FontSize="16"
+                                   HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame.Content>
+                </Frame>
+                <Frame CornerRadius="10" 
+                   HasShadow="True" 
+                   Padding="10,3"
+                   BackgroundColor="{StaticResource WhiteColor}">
+                    <Frame.Content>
+                        <StackLayout Spacing="0">
+                            <Label Text="Computer Vision Key ="                                  
+                                   TextColor="{StaticResource LightTextColor}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"/>
+                            <Entry Text="{Binding VisionKey, Mode=TwoWay}"
+                                   Placeholder="&#x003c;Computer Vision Key&#x003e;"
+                                   TextColor="{StaticResource DarkTextColor}"
+                                   FontSize="16"
+                                   HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame.Content>
+                </Frame>
+                <Frame CornerRadius="10" 
+                   HasShadow="True" 
+                   Padding="10,3"
+                   BackgroundColor="{StaticResource WhiteColor}">
+                    <Frame.Content>
+                        <StackLayout Spacing="0">
+                            <Label Text="How To Use =" 
+                                   TextColor="{StaticResource LightTextColor}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"/>
+                            <WebView x:Name="howToWebView"
+                                     HeightRequest="200"
+                                     HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame.Content>
+                </Frame>
+            </StackLayout>
+            <Button Text="Apply" 
+                    TextColor="{StaticResource WhiteColor}"
+                    BackgroundColor="{StaticResource DarkBlueColor}"
+                    CornerRadius="10"
+                    VerticalOptions="End"
+                    Command="{Binding ApplyCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
